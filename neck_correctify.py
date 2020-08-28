@@ -23,17 +23,21 @@ def load_keypoint_ann(file):
             key2pos[keyp] = shape['points'][0]
     return key2pos
 
-
+#
 def load_img_and_ann(folder):
     dict_img_ann = {}
     for f in glob.glob(folder + "*.json"):
         ann = load_keypoint_ann(f)
-        img_name = f.split(".json")[0]
-        img = Image.open(img_name + '.jpg')
+        img_name = os.path.basename(f).split(".json")[0]
+        #print(img_name)
+        img = Image.open(  f.split(".json")[0] + '.jpg')
         dict_img_ann[img_name] = (img , ann)
     return dict_img_ann
 
+# 计算两肩膀的终点
+
+
 if __name__ == '__main__':
-    folder = "../测试素材/测试人物/"
+    folder = "./测试素材/测试人物/"
     ann_folder = load_img_and_ann(folder)
     a = 1
