@@ -4,7 +4,7 @@ import glob
 from PIL import Image
 
 keypoint_list = ["left_shoulder", "right_shoulder", "left_mouse", "right_mouse", "nose", "left_eye",
-                 "right_eye", "left_ear", "right_ear"]
+                 "right_eye", "left_ear", "right_ear", "chi"]
 
 
 class KeyPoint:
@@ -20,7 +20,9 @@ def load_keypoint_ann(file):
     for shape in ann['shapes']:
         keyp = shape['label']
         if keyp not in key2pos.keys():
-            key2pos[keyp] = shape['points'][0]
+            key2pos[keyp] = shape['points']
+        else :
+            key2pos[keyp].append( shape['points'][0])
     return key2pos
 
 #
@@ -34,10 +36,11 @@ def load_img_and_ann(folder):
         dict_img_ann[img_name] = (img , ann)
     return dict_img_ann
 
-# 计算两肩膀的终点
 
-
+from geometry_tools import line_segments_offset
 if __name__ == '__main__':
     folder = "./测试素材/测试人物/"
     ann_folder = load_img_and_ann(folder)
-    a = 1
+    chi_points = ann_folder['4 (2)'][1]['chi']
+    chi_points = sorted(chi_points ,key= lambda x : x[0])
+    chi_offset = line_segments_offset(chi_points , 2 )

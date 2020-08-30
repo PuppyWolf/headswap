@@ -109,6 +109,138 @@
       "group_id": null,
       "shape_type": "point",
       "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          506.1,
+          176.5
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          496.4,
+          175.6
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          514.9,
+          175.1
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          473.0,
+          148.1
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          475.3,
+          156.7
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          480.8,
+          165.3
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          486.7,
+          170.8
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          521.3,
+          171.2
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          528.5,
+          164.4
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          533.0,
+          156.1
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
+    },
+    {
+      "label": "chi",
+      "points": [
+        [
+          535.5,
+          148.6
+        ]
+      ],
+      "group_id": null,
+      "shape_type": "point",
+      "flags": {}
     }
   ],
   "imagePath": "4 (3).jpg",
