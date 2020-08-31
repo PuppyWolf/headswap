@@ -1,3 +1,8 @@
+'''
+2D  坐标采用  device coordinates ，左下角为原点,
+如果是图片坐标系， 需要变换一次
+'''
+
 import math
 
 
@@ -10,8 +15,8 @@ def perpendcular_line(line, normalize= True, reverse= False):
         a /= m
         b /= m
     if reverse :
-        return  [b, -a , 1 ]
-    return [-b, a, 1]
+        return  [a, b , 1 ]
+    return [-a, -b, 1]
 
 # 2D point 按方向平移
 def translate_point(point , direction , offset ):
@@ -78,3 +83,14 @@ def line_segments_offset( lines , offset):
 
         new_lines.append(new_point)
     return new_lines
+
+
+#  test
+def tes_line_segment_offset():
+    lines = [[50.0 , 50.0] , [70.0 , 70.0 ] , [90.0 , 50.0]]
+    offset = 10
+    line_segments_offset(lines , offset)
+
+
+if __name__ == '__main__':
+    tes_line_segment_offset()
