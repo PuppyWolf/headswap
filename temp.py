@@ -59,7 +59,10 @@ def tes_minimize_rosen():
     print(res.success)
     print(res.x)
 
+import numpy as np
 if __name__ == '__main__':
-    tes_minimize_rosen()
-
+    X,Y  = np.meshgrid([1,2,3,4],[6,7,8] )
+    x_r = X.flatten().reshape((1 , 12 ))
+    y_r = Y.flatten().reshape((1 , 12 ))
+    np.vstack((x_r, y_r, np.ones_like(x_r)))
 
