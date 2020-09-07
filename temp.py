@@ -60,9 +60,38 @@ def tes_minimize_rosen():
     print(res.x)
 
 import numpy as np
+
+
+# 3*3 matrix image transform
+# img : nd-array
+# coordinate transform : https://towardsdatascience.com/image-geometric-transformation-in-numpy-and-opencv-936f5cd1d315
+def image_transform(img: np.ndarray, T):
+    height, width = img.shape[0:2]
+    x_cor, y_cor = np.meshgrid(range(width), range(height))
+    x_r = x_cor.flatten().reshape((1, height * width))
+    y_r = y_cor.flatten().reshape((1, height * width))
+    c_mat = np.vstack( (x_r, y_r, np.ones_like(x_r) )).astype(np.float32)
+
+    transformed_coordiantes = np.matmul(T, c_mat)
+    transformed_coordiantes = np.floor(transformed_coordiantes).astype(np.int)
+    x_trans = transformed_coordiantes[0, :]
+    y_trans = transformed_coordiantes[1, :]
+
+    indices = np.where((x_trans >= 0) & (x_trans < width) & (y_trans >= 0) &
+                       (y_trans < height))
+    x_trans = x_trans[indices]
+    y_trans = y_trans[indices]
+
+    x_r = x_r.flatten()[indices]
+    y_r = y_r.flatten()[indices]
+
+    # Map the pixel RGB data to new location in another array
+    canvas = np.zeros_like(img , dtype= img.dtype)
+    canvas[y_trans, x_trans, :] = img[y_r, x_r, :]
+
+    return canvas
 if __name__ == '__main__':
-    X,Y  = np.meshgrid([1,2,3,4],[6,7,8] )
-    x_r = X.flatten().reshape((1 , 12 ))
-    y_r = Y.flatten().reshape((1 , 12 ))
-    np.vstack((x_r, y_r, np.ones_like(x_r)))
+    img = np.random.random_integers(0,256, size=(256, 256, 3))
+    T= np.array( [[1,2,3],[3,2,1],[1,2,1] ]  )
+    image_transform(img , T )
 
